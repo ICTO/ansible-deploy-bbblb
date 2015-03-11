@@ -1,2 +1,4 @@
 ---
 # defaults file for /tmp/deploy-bbblb
+webroot: /var/www/bigbluebuttondirector
+package_name: bigbluebuttondirector

@@ -1,0 +1,10 @@
+---
+# Install from tar or deb package
+- apt: name={{ package_name }} state=latest update_cache=yes
+  when: source === 'deb'
+
+- copy: src={{ package_path }} dest=/tmp/(( package_path ))
+  when: source === 'tar'
+
+- unarchive: src=/tmp/(( package_name )) dest={{ webroot }} copy=no owner=www-data group=www-data
+  when: source === 'tar'

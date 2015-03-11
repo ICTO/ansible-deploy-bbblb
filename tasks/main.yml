@@ -1,1 +1,23 @@
 ---
+- command: sudo /etc/init.d/apache2 stop
+
+- command: sudo apt-get update
+
+- command: sudo apt-get install -y {{ package_name }}
+
+- { include: configure.yml }
+
+- command: sudo /etc/init.d/apache2 start
+
+- cron: name="Check Bigbluebutton servers" job="php {{ webroot }}/app/console bbblb:servers:check --env=prod"
+        state=present user=www-data
+  tags:
+    - cron
+
+- cron: name="Check Bigbluebutton servers" job="php {{ webroot }}/app/console bbblb:meetings:cleanup --env=prod"
+        state=present user=www-data
+  tags:
+    - cron"
+        state=present user=www-data
+  tags:
+    - cron

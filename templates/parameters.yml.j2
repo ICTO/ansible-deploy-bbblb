@@ -1,0 +1,28 @@
+parameters:
+    mongo_server: {{ mongo.server }}
+    mongo_database: {{ mongo.database }}
+
+    mailer_transport: {{ mailer.transport }}
+    mailer_host: {{ mailer.host }}
+    mailer_user: {{ mailer.user }}
+    mailer_password: {{ mailer.password }}
+
+    locale: en
+    secret: {{ symfony.secret }}
+    debug_toolbar: true
+    debug_redirects: false
+    use_assetic_controller: true
+
+    app.site_name: {{ app.sitename }}
+    app.domain: {{ app.domain }}
+    app.email_name: {{ app.emailname }}
+    app.email: {{ app.email}}
+    app.email_noreply: {{ app.noreply }}
+    app.loglevel: {{ app.loglevel }}
+
+    bbb.salt: {{ bbb.salt }}
+
+    # CAS login settings (remove this if not needed)
+    cas_host: {{ cas.host }}
+    cas_context: "{{ cas.context }}"
+    cas_port: {{ cas.port }}

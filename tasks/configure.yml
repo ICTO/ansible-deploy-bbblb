@@ -1,0 +1,7 @@
+---
+#- file: path={{ webroot }}/app/config/parameters.yml state=absent  
+
+- template: src=parameters.yml.j2 dest={{ webroot }}/app/config/parameters.yml
+
+- file: path={{ webroot }}/web/app_dev.php state=absent
+- file: path={{ webroot }}/web/config.php state=absent
