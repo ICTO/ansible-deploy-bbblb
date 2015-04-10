@@ -9,10 +9,10 @@
 
 - command: sudo /etc/init.d/apache2 start
 
-- command: sudo /bin/su -s /bin/bash www-data -c php {{ webroot }}/app/console cache:clear --env=prod
+- command: sudo /bin/su -s /bin/bash www-data -c "php {{ webroot }}/app/console cache:clear --env=prod"
 
-- cron: name="Check Bigbluebutton servers" job="sudo /bin/su -s /bin/bash www-data -c php {{ webroot }}/app/console bbblb:servers:check --env=prod"
+- cron: name="Check Bigbluebutton servers" job="sudo /bin/su -s /bin/bash www-data -c \"php {{ webroot }}/app/console bbblb:servers:check --env=prod\"  > /dev/null 2>&1"
         state=present
 
-- cron: name="Check Bigbluebutton servers" job="sudo /bin/su -s /bin/bash www-data -c php {{ webroot }}/app/console bbblb:meetings:cleanup --env=prod"
+- cron: name="Cleanup Bigbluebutton servers" job="sudo /bin/su -s /bin/bash www-data -c \"php {{ webroot }}/app/console bbblb:meetings:cleanup --env=prod\"  > /dev/null 2>&1"
         state=present

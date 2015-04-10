@@ -1,6 +1,9 @@
 parameters:
     mongo_server: {{ mongo.server }}
     mongo_database: {{ mongo.database }}
+    mongo_replicaset: {{ mongo.replicaset }}
+    mongo_username: {{ mongo.username }}
+    mongo_password: {{ mongo.password }}
 
     mailer_transport: {{ mailer.transport }}
     mailer_host: {{ mailer.host }}
@@ -12,6 +15,8 @@ parameters:
     debug_toolbar: true
     debug_redirects: false
     use_assetic_controller: true
+
+    sys.path_node: node
 
     app.site_name: {{ app.sitename }}
     app.domain: {{ app.domain }}
